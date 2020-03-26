@@ -18,7 +18,7 @@ module.exports = app => {
 
   app.get('/auth/google/callback', (req, res) => {
     console.log(req.user.firstName);
-    res.send({message: `You are logged in, ${req.user.firstName}`});
+    res.send({message: `You are logged in, ${req.user.firstName}. Sabias que te amo?`});
   });
 
   app.get('/api/current_user', (req, res) => {
