@@ -23,7 +23,8 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
-      passReqToCallback: true
+      passReqToCallback: true,
+      proxy: true
     },
     (request, accessToken, refreshToken, profile, done) => {
       User.findOne({
