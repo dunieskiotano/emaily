@@ -16,6 +16,11 @@ module.exports = app => {
     res.send(req.user);
   });
 
+  app.get('/auth/google/callback', (req, res) => {
+    console.log(req.user.firstName);
+    res.send({message: `You are logged in, ${req.user.firstName}`});
+  });
+
   app.get('/api/current_user', (req, res) => {
     //res.send(req.session); // gets the cookie id/session id/mongoDB id
     res.send(req.user);
