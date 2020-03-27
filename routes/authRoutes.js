@@ -8,21 +8,21 @@ module.exports = app => {
     })
   );
 
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
+  );
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send({ message: 'User has been logged out' });
-    res.send(req.user);
-  });
-
-  app.get('/auth/google/callback', (req, res) => {
-    console.log(req.user.firstName);
-    res.send({message: `You are logged in, ${req.user.firstName}. Sabias que te amo?`});
+    res.redirect('/');
   });
 
   app.get('/api/current_user', (req, res) => {
     //res.send(req.session); // gets the cookie id/session id/mongoDB id
-    res.send(req.user);
+    res.send(`Hey, ${req.user.firstName}, how do you like my app so far?`);
   });
 };
