@@ -23,6 +23,8 @@ module.exports = app => {
 
   app.get('/api/current_user', (req, res) => {
     //res.send(req.session); // gets the cookie id/session id/mongoDB id
-    res.send(`Hey, ${req.user.firstName}, how do you like my app so far?`);
+    res.send(req.user);
+    console.log(req.user);
   });
-};
+
+}
