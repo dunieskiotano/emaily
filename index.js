@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 require('./models/User'); // this line goes first
+require('./models/Survey');
 require('./services/passport'); // this line goes second
 const bodyParser = require('body-parser');
 //import express from "express";
@@ -38,6 +39,8 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 
 require('./routes/billingRoutes')(app);
+
+require('./routes/surveyRoutes')(app);
 // console.developers.google.com
 
 
@@ -56,6 +59,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 // ------- END OF FOR PRODUCTION ---------//
+
 
 // This gets a dynamic port used by Heroku (prod) or use port 5000 (dev)
 const PORT = process.env.PORT || 5000;

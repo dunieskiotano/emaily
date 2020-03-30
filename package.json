@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": "12.16.1",
-    "npm":"6.14.3"
+    "npm": "6.14.3"
   },
   "scripts": {
     "start": "node index.js",
@@ -26,6 +26,7 @@
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^8.37.0"
   }
 }
