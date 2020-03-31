@@ -27,10 +27,10 @@ module.exports = app => {
     const p = new Path('/api/surveys/:surveyId/:choice');
     _.chain(req.body)
       .map(({ email, url }) => {
-        const match = p.test(new URL(url).pathname);
-        if (match) {
-          return { email, surveyId: match.surveyId, choice: match.choice };
-        }
+        // const match = p.test(new URL(url).pathname);
+        // if (match) {
+        //   return { email, surveyId: match.surveyId, choice: match.choice };
+        // }
       })
       .compact() // compact takes an array and goes through and eliminates all elements that are undefined
       .uniqBy('email', 'surveyId') // uniqBy will remove any duplicates
